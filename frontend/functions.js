@@ -1,15 +1,18 @@
 // Fonction qui permet de récupérer le panier
-function getItemsFromCart(){
-    let cart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
-    return cart
-    };
+function getCart() {
+  let cart = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
 
-// Affichage du nombre d'élements dans le panier
-function displayCartItemsNumber(){
-    let cart = getCart()
-    document.querySelector("span").textContent = cart.length;
+  return cart;
 }
 
-function displayPrice(price){
-    return price / 100;
-};
+// Affichage du nombre d'élements dans le panier
+function displayCartItemsNumber() {
+  let cart = getCart();
+  document.querySelector("span").textContent = cart.length;
+}
+
+function displayPrice(price) {
+  return price / 100;
+}

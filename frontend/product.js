@@ -1,16 +1,21 @@
 // Récupération de l'ID produit
 let params = new URLSearchParams(document.location.search);
 let id = params.get("id");
-console.log(id);
+//console.log(id);
 let url = "http://localhost:3000/api/cameras/" + id;
-console.log(url);
+//console.log(url);
+// Panier
 let cart = getCart();
-diplayCartItemsNumber();
+displayCartItemsNumber();
 
 ajaxGet(url, function (response) {
   let cameraDescription = JSON.parse(response);
+  console.log(cameraDescription);
   let productDescription = document.getElementById("productDescription");
+  let productSelected = displayProductSelected(cameraDescription);
+});
 
+function displayProductSelected(cameraDescription) {
   // Création div principale
   let mainContainer = document.createElement("div");
   mainContainer.className = "row no-gutters";
@@ -52,7 +57,7 @@ ajaxGet(url, function (response) {
   // Création du prix
   let itemPrice = document.createElement("p");
   itemPrice.className = "card-text";
-  itemPrice.textContent = cameraDescription.price / 100 + " €";
+  itemPrice.textContent = displayPrice(cameraDescription.price) + " €";
   cardBody.appendChild(itemPrice);
 
   // Choix des lentilles
@@ -77,13 +82,12 @@ ajaxGet(url, function (response) {
   cardBody.appendChild(addToCart);
 
   let buttonAction = document.getElementById("addToCart");
-
-  // Compteur panier et ajout des produits dans le localStorage
   buttonAction.addEventListener("click", function () {
     addElementToCart(cameraDescription);
   });
-});
+}
 
+// Compteur panier et ajout des produits dans le localStorage
 function addElementToCart(cameraDescription) {
   let lenseSelect = document.querySelector("select");
   let lenseChoice = lenseSelect.selectedIndex;
@@ -97,12 +101,14 @@ function addElementToCart(cameraDescription) {
       imageUrl: cameraDescription.imageUrl,
       lens: cameraDescription.lenses[lenseChoice],
     };
-    cart.push(cameraInCart);
-    let addToCart = JSON.stringify(cart);
-    localStorage.setItem("cart", addToCart);
-    alert("Votre article a été ajouté au panier");
-    console.log("Cet article a été ajouté" + "" + addToCart);
-  };
-};
+  
+  cart.push(cameraInCart);
+  let addToCart = JSON.stringify(cart);
+  localStorage.setItem("cart", addToCart);
+  alert("Votre article a été ajouté au panier");
+  console.log("Cet article a été ajouté" + "" + addToCart);
+  displayCartItemsNumber();
+  }
+}
 
 

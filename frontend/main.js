@@ -41,8 +41,9 @@ function createProductBloc(cameraList) {
   cardBody.className = "card-body";
   cameraName.className = "card-title";
   cameraName.textContent = cameraList.name;
-  cameraPrice.className = cameraPrice.textContent =
-    cameraList.price / 100 + " €";
+  cameraPrice.className = "card-text";
+  cameraPrice.textContent = displayPrice(cameraList.price) + " €";
+  
   cameraButton.className = "btn btn-lg";
   cameraButton.textContent = "Voir l'article";
   cameraDescription.href = "product.html?id=" + cameraList._id;
@@ -53,6 +54,7 @@ function createProductBloc(cameraList) {
   card.appendChild(cameraImage);
   card.appendChild(cardBody);
   cardBody.appendChild(cameraName);
+  cardBody.appendChild(cameraPrice);
   cardBody.appendChild(cameraDescription);
   cameraDescription.appendChild(cameraButton);
 };
