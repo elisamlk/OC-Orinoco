@@ -20,6 +20,8 @@ ajaxGet("http://localhost:3000/api/cameras", function (reponse) {
   });
 });
 
+displayCartItemsNumber();
+
 function createProductBloc(cameraList) {
   // Création des éléments
   let containerCol = document.createElement("div");
