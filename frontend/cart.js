@@ -7,7 +7,6 @@ let productInCart = document.getElementById("productInCart");
 
 function displayItemsInCart() {
   for (i = 0; i < itemsInCart.length; i++) {
-
     // Création des lignes du tableau
     let tr = document.createElement("tr");
     productInCart.appendChild(tr);
@@ -32,19 +31,24 @@ function displayItemsInCart() {
     // Ajout du prix
     let productPrice = document.createElement("th");
     productPrice.setAttribute("scope", "row");
-    productPrice.textContent = displayPrice(itemsInCart[i].price)+ " " + "€";
+    productPrice.textContent = displayPrice(itemsInCart[i].price) + " " + "€";
     tr.appendChild(productPrice);
 
     // Selectionner la quantité
     let productQuantity = document.createElement("th");
     productQuantity.setAttribute("scope", "row");
     tr.appendChild(productQuantity);
+    let quantityChoice = document.createElement("label");
 
+    productQuantity.appendChild(quantityChoice);
+    let quantityNumber = document.createElement("input");
+    quantityNumber.setAttribute = ("value", 1);
+
+    quantityChoice.appendChild(quantityNumber);
 
     // Ajouter le prix total
-  };
+  }
   console.log(productInCart);
-
-};
+}
 
 displayItemsInCart();
