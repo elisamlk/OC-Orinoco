@@ -70,7 +70,7 @@ function displayProductSelected(cameraDescription) {
   for (let i = 0; i < cameraDescription.lenses.length; i++) {
     let lenseoption = document.createElement("option");
     lenseoption.textContent = cameraDescription.lenses[i];
-    lenseoption.setAttribute("value", cameraDescription.lenses);
+    lenseoption.setAttribute("value", cameraDescription.lenses[i]);
     select.appendChild(lenseoption);
   }
 
@@ -86,6 +86,8 @@ function displayProductSelected(cameraDescription) {
     addElementToCart(cameraDescription);
   });
 }
+
+console.log(productDescription);
 
 // Compteur panier et ajout des produits dans le localStorage
 function addElementToCart(cameraDescription) {

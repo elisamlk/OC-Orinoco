@@ -16,3 +16,5 @@ function displayCartItemsNumber() {
 function displayPrice(price) {
   return price / 100;
 }
+
+
