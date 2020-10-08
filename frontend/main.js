@@ -43,7 +43,6 @@ function createProductBloc(cameraList) {
   cameraName.textContent = cameraList.name;
   cameraPrice.className = "card-text";
   cameraPrice.textContent = displayPrice(cameraList.price) + " €";
-  
   cameraButton.className = "btn btn-lg";
   cameraButton.textContent = "Voir l'article";
   cameraDescription.href = "product.html?id=" + cameraList._id;

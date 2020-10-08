@@ -101,7 +101,7 @@ function addElementToCart(cameraDescription) {
       name: cameraDescription.name,
       price: cameraDescription.price,
       imageUrl: cameraDescription.imageUrl,
-      lens: cameraDescription.lenses[lenseChoice],
+      lens: cameraDescription.lenses[lenseChoice - 1],
     };
   
   cart.push(cameraInCart);

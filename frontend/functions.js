@@ -17,4 +17,6 @@ function displayPrice(price) {
   return price / 100;
 }
 
+// Calcul du prix total de la commande
+
 

@@ -6,6 +6,7 @@ console.log(typeof itemsInCart);
 let productInCart = document.getElementById("productInCart");
 
 function displayItemsInCart() {
+  // Boucle pour récupérer les éléments dans le panier
   for (i = 0; i < itemsInCart.length; i++) {
     // Création des lignes du tableau
     let tr = document.createElement("tr");
@@ -34,19 +35,13 @@ function displayItemsInCart() {
     productPrice.textContent = displayPrice(itemsInCart[i].price) + " " + "€";
     tr.appendChild(productPrice);
 
-    // Selectionner la quantité
-    let productQuantity = document.createElement("th");
-    productQuantity.setAttribute("scope", "row");
-    tr.appendChild(productQuantity);
-    let quantityChoice = document.createElement("label");
+    // Ajout de la lentille séléctionnée
+    let lenseSelected = document.createElement("th");
+    lenseSelected.setAttribute("scope", "row");
+    lenseSelected.textContent = itemsInCart[i].lens;
+    tr.appendChild(lenseSelected);
 
-    productQuantity.appendChild(quantityChoice);
-    let quantityNumber = document.createElement("input");
-    quantityNumber.setAttribute = ("value", 1);
-
-    quantityChoice.appendChild(quantityNumber);
-
-    // Ajouter le prix total
+    // Supprimer un produit du panier
   }
   console.log(productInCart);
 }

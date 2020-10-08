@@ -1,81 +1,89 @@
 body {
-    margin: 0;
-    font-family: sans-serif;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+header {
+  background-color: #f3ebf3;
+  width: 100%;
+  display: flex;
+  height: 125px;
+  align-items: center;
+  justify-content: space-around;
+  nav {
+    width: 35%;
   }
-  
-  header {
-    background-color: #f3ebf3;
-    width: 100%;
+  ul {
     display: flex;
-    height: 125px;
-    align-items: center;
+    list-style: none;
     justify-content: space-around;
-    nav {
-      width: 35%;
-    }
-    ul {
-      display: flex;
-      list-style: none;
-      justify-content: space-around;
-      a {
-        text-decoration: none;
-        color: black;
-        font-size: 25px;
-      }
-    }
-    li {
+    a {
+      text-decoration: none;
+      color: black;
       font-size: 25px;
     }
   }
-  
-  #productDisplay {
-    margin: 40px 20px 100px 20px;
-  
-    .card {
-      box-shadow: 0px 0px 3px 4px #f1f1f1;
-      border-radius: 20px;
-      img {
-        border-top-right-radius: 20px;
-        border-top-left-radius: 20px;
-      }
-      button {
-        background-color: #f3ebf3;
-        border-radius: 20px;
-      }
-    }
+  li {
+    font-size: 25px;
   }
-  
-  footer {
-    height: 100px;
-    background-color: #f3ebf3;
-    bottom: 0;
-    position: fixed;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  #productDescription {
-    margin: 20px 70px 0 70px;
+}
+
+main{
+  margin-bottom : 200px;
+}
+
+#productDisplay {
+  margin: 40px 20px 100px 20px;
+
+  .card {
     box-shadow: 0px 0px 3px 4px #f1f1f1;
     border-radius: 20px;
     img {
       border-top-right-radius: 20px;
       border-top-left-radius: 20px;
     }
-  }
-
-  table{
-    margin-top:20px;
-  }
-
-  .cart-img{
-    border-radius : 10px;
-  }
-  
-  @media screen and (min-width: 200px) and (max-width: 768px) {
-    nav{
-      display: none;
+    button {
+      background-color: #f3ebf3;
+      border-radius: 20px;
     }
   }
+}
+
+#productDescription {
+  margin: 20px 70px 0 70px;
+  box-shadow: 0px 0px 3px 4px #f1f1f1;
+  border-radius: 20px;
+  img {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+}
+
+.cart-img {
+  border-radius: 10px;
+}
+
+table {
+  margin-top: 30px;
+}
+
+form {
+  margin: 0 30px 0 30px;
+}
+
+footer {
+  height: 100px;
+  background-color: #f3ebf3;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 200px) and (max-width: 768px) {
+  nav {
+    display: none;
+  }
+}
