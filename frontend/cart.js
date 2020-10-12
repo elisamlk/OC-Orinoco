@@ -52,15 +52,26 @@ function displayTotalPrice() {
   let totalPriceRow = document.createElement("th");
   totalPriceRow.textContent = "TOTAL DE VOTRE COMMANDE";
   displayPriceRow.appendChild(totalPriceRow);
-  // incrementer de 1 par rapport a la longueur du tableau
-  let totalPrice = itemsInCart[0].price + itemsInCart[1].price;
+  let totalPrice = 0;
+  for (let i = 0; i < itemsInCart.length; i++) {
+    totalPrice = itemsInCart[i].price + totalPrice;
+  }
   console.log(totalPrice);
   let displayTotalCost = document.createElement("th");
   displayTotalCost.textContent = displayPrice(totalPrice) + " " + "€";
   displayPriceRow.appendChild(displayTotalCost);
 }
 
- let contact = {
+console.log(order);
+
+function confirmOrder() {
+  let sendInfoBtn = document.getElementById("form");
+  sendInfoBtn.addEventListener("submit", function (e) {
+    e.preventDefault()
+    if (checkInfo() == true) {
+      // Objet contact
+
+      let contact = {
         firstName: document.getElementById("firstname").value,
         lastName: document.getElementById("name").value,
         address: document.getElementById("adress").value,
@@ -74,22 +85,14 @@ function displayTotalPrice() {
       for (let i = 0; i < itemsInCart.length; i++) {
         products.push(itemsInCart[i].id);
       }
-      console.log(products)
+      console.log(products);
       // Info à envoyer à l'API
       const order = {
         contact,
         products,
       };
 
-      console.log(order);
-
-
-/*function confirmOrder() {
-  let sendInfoBtn = document.getElementById("order");
-  sendInfoBtn.addEventListener("click", function () {
-    if (checkInfo() == true) {
-      // Objet contact
-     
+      localStorage.setItem("order", JSON.stringify(order));
 
       let requestInfo = {
         method: "POST",
@@ -105,8 +108,7 @@ function displayTotalPrice() {
     }
   });
 }
-*/
 
 displayItemsInCart();
 displayTotalPrice();
-//confirmOrder();
+confirmOrder();

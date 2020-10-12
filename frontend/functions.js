@@ -19,7 +19,7 @@ function displayPrice(price) {
 
 // Gestion des regex
 function checkInfo() {
-  let stringInfo = /^[A-Z]{1}[a-z]/;
+  let stringInfo = /^[A-Za-z0-9]{1,}/;
   let mailInfo = /.+@.+\..+/;
 
   let formName = document.getElementById("name").value;
