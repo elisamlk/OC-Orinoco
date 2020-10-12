@@ -60,75 +60,53 @@ function displayTotalPrice() {
   displayPriceRow.appendChild(displayTotalCost);
 }
 
-let contact = {
-  firstName: document.getElementById("firstname").value,
-  lastName: document.getElementById("name").value,
-  address: document.getElementById("adress").value,
-  city: document.getElementById("city").value,
-  email: document.getElementById("email").value,
-};
+ let contact = {
+        firstName: document.getElementById("firstname").value,
+        lastName: document.getElementById("name").value,
+        address: document.getElementById("adress").value,
+        city: document.getElementById("city").value,
+        email: document.getElementById("email").value,
+      };
+      console.log(contact);
 
-let products = [];
-for (let i = 0; i < itemsInCart.length; i++) {
-  products.push(itemsInCart[i].id);
-}
+      // Récupération de l'ID du produit
+      let products = [];
+      for (let i = 0; i < itemsInCart.length; i++) {
+        products.push(itemsInCart[i].id);
+      }
+      console.log(products)
+      // Info à envoyer à l'API
+      const order = {
+        contact,
+        products,
+      };
+
+      console.log(order);
 
 
-// Gestion des regex
-function checkInfo() {
-  let stringInfo = /^[A-Z]{1}[a-z]/;
-  let mailInfo = /.+@.+\..+/;
-
-  let formName = document.getElementById("name").value;
-  let formFirstName = document.getElementById("firstname").value;
-  let formAdress = document.getElementById("adress").value;
-  let formCity = document.getElementById("city").value;
-  let formMail = document.getElementById("email").value;
-
-  if (stringInfo.test(formName) == false) {
-    alert("Votre nom doit être renseigné");
-    return false;
-  } else if (stringInfo.test(formFirstName) == false) {
-    alert("Votre prénom doit être renseigné");
-    return false;
-  } else if (stringInfo.test(formAdress) == false) {
-    alert("Votre adresse doit être renseignée");
-    return false;
-  } else if (formCity == false) {
-    alert(" Votre ville doit être renseignée.");
-    return false;
-  } else if (mailInfo.test(formMail) == false) {
-    alert("Votre adresse mail n'est pas au bon format");
-    return false;
-  } else {
-    return true;
-  }
-}
-
-//Création de l'objet à envoyer à l'API
-const order = {
-  contact,
-  products,
-};
-
-console.log(order);
-
-function confirmOrder() {
+/*function confirmOrder() {
   let sendInfoBtn = document.getElementById("order");
-}
+  sendInfoBtn.addEventListener("click", function () {
+    if (checkInfo() == true) {
+      // Objet contact
+     
 
-let requestInfo = {
-  method: "POST",
-  body: JSON.stringify(order),
-  headers: { "Content-type": "application/json; charset=UTF-8" },
-};
+      let requestInfo = {
+        method: "POST",
+        body: JSON.stringify(order),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      };
 
-fetch("http://localhost:3000/api/cameras/order", requestInfo)
-  .then((response) => response.json())
-  .then((orderConfirm) => {
-    console.log(orderConfirm);
+      fetch("http://localhost:3000/api/cameras/order", requestInfo)
+        .then((response) => response.json())
+        .then((orderConfirm) => {
+          console.log(orderConfirm);
+        });
+    }
   });
+}
+*/
 
 displayItemsInCart();
 displayTotalPrice();
-confirmOrder();
+//confirmOrder();
