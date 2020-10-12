@@ -109,6 +109,7 @@ function addElementToCart(cameraDescription) {
   localStorage.setItem("cart", addToCart);
   alert("Votre article a été ajouté au panier");
   console.log("Cet article a été ajouté" + "" + addToCart);
+
   displayCartItemsNumber();
   }
 }

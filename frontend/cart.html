@@ -11,7 +11,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
   </head>
   <body>
     <header>
@@ -45,35 +44,36 @@
       </div>
 
       <form>
+        <h4>Merci de renseigner vos informations</h4>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="Last Name">Nom</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="name"> 
           </div>
           <div class="form-group col-md-6">
             <label for="inputPassword4">Prénom</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="firstname">
           </div>
         </div>
         
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="inputCity">Adresse</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input type="text" class="form-control" id="adress">
           </div>
           <div class="form-group col-md-4">
             <label for="inputState">Ville</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input type="text" class="form-control" id="city">
             
           </div>
           <div class="form-group col-md-4">
             <label for="inputZip">Email</label>
-            <input type="text" class="form-control" id="inputZip">
+            <input type="text" class="form-control" id="email">
           </div>
         </div>
         <div class="form-group">
         
-        <button type="submit" class="btn btn-primary">Valider votre commande</button>
+        <button type="submit" id="order">Valider votre commande</button>
       </form>
 
     </main>
