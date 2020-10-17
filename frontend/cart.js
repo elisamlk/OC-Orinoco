@@ -102,6 +102,10 @@ function confirmOrder() {
         .then(function (orderConfirm) {
           getOrder(orderConfirm);
         });
+
+      sendInfoBtn.onclick = function () {
+        location = "confirmation.html";
+      };
     }
   });
 }
@@ -115,7 +119,7 @@ function getOrder(orderConfirm) {
     "contactName",
     orderConfirm.contact["firstName"]
   );
-  // let totalOrder
+  // let totalOrder pour afficher le prix total de la commande
 }
 
 displayItemsInCart();
