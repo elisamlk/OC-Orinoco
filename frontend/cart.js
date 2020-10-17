@@ -62,15 +62,12 @@ function displayTotalPrice() {
   displayPriceRow.appendChild(displayTotalCost);
 }
 
-console.log(order);
-
 function confirmOrder() {
   let sendInfoBtn = document.getElementById("form");
   sendInfoBtn.addEventListener("submit", function (e) {
-    e.preventDefault()
+    e.preventDefault();
     if (checkInfo() == true) {
       // Objet contact
-
       let contact = {
         firstName: document.getElementById("firstname").value,
         lastName: document.getElementById("name").value,
@@ -102,11 +99,23 @@ function confirmOrder() {
 
       fetch("http://localhost:3000/api/cameras/order", requestInfo)
         .then((response) => response.json())
-        .then((orderConfirm) => {
-          console.log(orderConfirm);
+        .then(function (orderConfirm) {
+          getOrder(orderConfirm);
         });
     }
   });
+}
+
+function getOrder(orderConfirm) {
+  let orderId = localStorage.setItem(
+    "orderId",
+    JSON.stringify(orderConfirm.orderId)
+  );
+  let contactName = localStorage.setItem(
+    "contactName",
+    orderConfirm.contact["firstName"]
+  );
+  // let totalOrder
 }
 
 displayItemsInCart();
