@@ -7,8 +7,8 @@ function orderInfo() {
   console.log(contactName);
   let confirmMessage = document.querySelector("p");
   confirmMessage.textContent =
-    contactName + ", merci pour votre commande numéro " + orderId;
+    contactName + ", merci pour votre commande numéro " + orderId + " a bien été prise en compte";
   console.log(confirmMessage);
 }
 
-window.onload = orderInfo();
+orderInfo();
