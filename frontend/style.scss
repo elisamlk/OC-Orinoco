@@ -28,8 +28,8 @@ header {
   }
 }
 
-main{
-  margin-bottom : 200px;
+main {
+  margin-bottom: 200px;
 }
 
 #productDisplay {
@@ -69,7 +69,7 @@ table {
 
 form {
   margin: 0 30px 0 30px;
-  h4{
+  h4 {
     text-align: center;
   }
 }
@@ -78,8 +78,8 @@ button {
   background-color: #f3ebf3;
   border-radius: 20px;
   border: none;
-  height:60px;
-  width:200px;
+  height: 60px;
+  width: 200px;
 }
 
 footer {
@@ -93,7 +93,9 @@ footer {
   justify-content: center;
 }
 
-
+.card{
+  margin:30px;
+}
 
 @media screen and (min-width: 200px) and (max-width: 768px) {
   nav {

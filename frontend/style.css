@@ -117,6 +117,10 @@ footer {
           justify-content: center;
 }
 
+.card {
+  margin: 30px;
+}
+
 @media screen and (min-width: 200px) and (max-width: 768px) {
   nav {
     display: none;
