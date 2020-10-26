@@ -42,11 +42,9 @@ function displayItemsInCart(items, container) {
     lenseSelected.textContent = items[i].lens;
     tr.appendChild(lenseSelected);
   }
-  console.log(productInCart);
 }
 
 function displayTotalPrice() {
-  console.log(itemsInCart);
   let displayPriceRow = document.createElement("tr");
   productInCart.appendChild(displayPriceRow);
   let totalPriceRow = document.createElement("th");

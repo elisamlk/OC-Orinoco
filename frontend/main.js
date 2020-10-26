@@ -2,16 +2,16 @@ ajaxGet("http://localhost:3000/api/cameras", function (reponse) {
   let cameras = JSON.parse(reponse);
   console.log(cameras);
   // Boucle pour récupérer les caméras
-  cameras.forEach(function (cameraList) {
+  cameras.forEach(function (camera) {
     // Récupération de l'élément main
     let productDisplay = document.getElementById("productDisplay");
-    let newProduct = createProductBloc(cameraList);
+    createProductBloc(camera, productDisplay);
   });
 });
 
 displayCartItemsNumber();
 
-function createProductBloc(cameraList) {
+function createProductBloc(camera, container) {
   // Création des éléments
   let containerCol = document.createElement("div");
   let card = document.createElement("div");
@@ -26,18 +26,18 @@ function createProductBloc(cameraList) {
   containerCol.className = "col mb-4";
   card.className = "card h-100";
   cameraImage.className = "card-img-top";
-  cameraImage.src = cameraList.imageUrl;
+  cameraImage.src = camera.imageUrl;
   cardBody.className = "card-body";
   cameraName.className = "card-title";
-  cameraName.textContent = cameraList.name;
+  cameraName.textContent = camera.name;
   cameraPrice.className = "card-text";
-  cameraPrice.textContent = displayPrice(cameraList.price) + " €";
+  cameraPrice.textContent = displayPrice(camera.price) + " €";
   cameraButton.className = "btn btn-lg";
   cameraButton.textContent = "Voir l'article";
-  cameraDescription.href = "product.html?id=" + cameraList._id;
+  cameraDescription.href = "product.html?id=" + camera._id;
 
   // Ajout des éléments
-  productDisplay.appendChild(containerCol);
+  container.appendChild(containerCol);
   containerCol.appendChild(card);
   card.appendChild(cameraImage);
   card.appendChild(cardBody);
